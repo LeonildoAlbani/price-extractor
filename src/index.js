@@ -50,21 +50,25 @@ function getInsert(link, descr, site, preco){
 
     try {
         await client.connect()
-        for (let i = 100000000; i < 999999999; i++) {
-            let link = "https://www.americanas.com.br/produto/" + i;
-            await requestify.get(link)
-                .then(async (response) => {
-                    console.log('Sucesso ', link)
-                    const $ = cheerio.load(response.body)
-                    const preco = getMenorPreco(getArrayPrecos($('p.sales-price').text() + $('strong.payment-option-price').text() + $('span.sales-price').text()))
-                    const descr = $('h1.product-name').text()
+        for (let ii = 12000; ii < 99999; ii++){
+            let promises = [];
+            for (let i = 0; i < 9999; i++) {
+                let link = "https://www.americanas.com.br/produto/" + ii +('0000'+i).substring((i+'').length);
+                promises.push (requestify.get(link)
+                    .then( (response) => {
+                        console.log('Sucesso ', link)
+                        const $ = cheerio.load(response.body)
+                        const preco = getMenorPreco(getArrayPrecos($('p.sales-price').text() + $('strong.payment-option-price').text() + $('span.sales-price').text()))
+                        const descr = $('h1.product-name').text()
 
-                    const res = await client.query(getInsert(link, descr, 'AMERICANAS', preco))
+                        const res = client.query(getInsert(link, descr, 'AMERICANAS', preco))
 
-                })
-                .fail((err) => {
-                    console.error('Falhou ', link)
-                })
+                    })
+                    .fail((err) => {
+                        console.error('Falhou ', link)
+                    }))
+            }
+            await Promise.all(promises)
         }
     } finally {
         await client.end()
