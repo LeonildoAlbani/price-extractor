@@ -28,7 +28,15 @@ function getArrayPrecos(string, index = 1){
 	tp_site varchar(20) not null,
 	vl_preco real not null,
 	dh_extracao timestamp without time zone not null default now()
-)*/
+)
+
+variáveis de ambiente
+PGHOST
+PGPORT
+PGDATABASE
+PGUSER
+PGPASSWORD
+*/
 
 function getInsert(link, descr, site, preco){
     return {
