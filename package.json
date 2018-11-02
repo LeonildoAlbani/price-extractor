@@ -1,0 +1,30 @@
+{
+  "name": "price-extractor",
+  "version": "1.0.0",
+  "description": "Extract prices from brazilian e-commerces",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonildoAlbani/price-extractor.git"
+  },
+  "keywords": [
+    "prices",
+    "e-commerce",
+    "extract"
+  ],
+  "author": "LeonildoAlbani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LeonildoAlbani/price-extractor/issues"
+  },
+  "homepage": "https://github.com/LeonildoAlbani/price-extractor#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.4",
+    "pg": "^7.6.0",
+    "requestify": "^0.2.5"
+  }
+}
