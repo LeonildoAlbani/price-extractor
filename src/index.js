@@ -58,10 +58,10 @@ function getInsert(link, descr, site, preco){
 
     try {
         await client.connect()
-        for (let ii = 12000; ii < 99999; ii++){
+        for (let ii = 12104870; ii < 99999999; ii++){
             let promises = [];
-            for (let i = 0; i < 9999; i++) {
-                let link = "https://www.americanas.com.br/produto/" + ii +('0000'+i).substring((i+'').length);
+            for (let i = 0; i < 9; i++) {
+                let link = "https://www.americanas.com.br/produto/" + ii +('0'+i).substring((i+'').length);
                 promises.push (requestify.get(link)
                     .then( (response) => {
                         console.log('Sucesso ', link)
