@@ -58,7 +58,7 @@ function getInsert(link, descr, site, preco){
 
     try {
         await client.connect()
-        for (let ii = 12104870; ii < 99999999; ii++){
+        for (let ii = 12267350; ii < 99999999; ii++){
             let promises = [];
             for (let i = 0; i < 9; i++) {
                 let link = "https://www.americanas.com.br/produto/" + ii +('0'+i).substring((i+'').length);
